@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>jQuery-expire by travishorn</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>jQuery-expire</h1>
+        <p>Checks to see whether a page has expired and, if so, performs an action.</p>
+        <p class="view"><a href="https://github.com/travishorn/jquery-expire">View the Project on GitHub <small>travishorn/jquery-expire</small></a></p>
+        <ul>
+          <li><a href="https://github.com/travishorn/jquery-expire/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/travishorn/jquery-expire/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/travishorn/jquery-expire">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>expire</h1>
+
+<h2>Description</h2>
+
+<p>Checks to see whether a page has expired or not. Checks current timestamp on load and at a specified interval (default 1 second) against specified start and end times. Can use client's local time or pull from atomic clock.  Can use local timezone's for each client, or specified absolute timezone.</p>
+
+<h2>Usage</h2>
+
+<ol>
+<li>Include jQuery</li>
+<li>Include jquery.expire.js</li>
+<li>Call <code>$.expire();</code> with <code>startTime</code>, <code>endTime</code>, and <code>expireAction</code>
+</li>
+</ol><h2>Options</h2>
+
+<p><strong>startTime</strong><br>
+date<br>
+required<br>
+Date when you want the page to become active. If <code>timeStamp</code> is before <code>startTime</code>, <code>expireAction</code> will be called.</p>
+
+<p><strong>endTime</strong><br>
+date<br>
+required<br>
+Date when you want the page to expire. If <code>timeStamp</code> is on or after <code>endTime</code>, <code>expireAction</code> will be called.</p>
+
+<p><strong>expireAction</strong><br>
+function<br>
+required<br>
+This function is called when <code>timeStamp</code> is outside range of <code>startTime</code> and <code>endTime</code>. A common usage would be to redirect the page with <code>window.location</code>.</p>
+
+<p><strong>updateInterval</strong>
+integer<br>
+optional<br>
+default: <code>1000</code><br>
+Interval, in milliseconds, the script will check whether the page is expired or not. The script will automatically check on page load, then every <code>updateInterval</code>.</p>
+
+<p><strong>useAtomicTime</strong><br>
+boolean<br>
+optional<br>
+default: <code>false</code><br>
+If true, the <code>timeStamp</code> will be updated via AJAX to the atomic time in the timezone specified with the <code>timeZone</code> option.</p>
+
+<p><strong>timeZone</strong><br>
+string<br>
+optional<br>
+default: <code>'local'</code><br>
+Can be any timezone listed on <a href="http://json-time.appspot.com/timezones.json">http://json-time.appspot.com/timezones.json</a>.  If set to <code>'local'</code> (default), the timezone will be checked via AJAX based on the client's IP address geolocation information. Keep in mind that the page will expire for different clients depending on what timezone they are in. Setting an absolute timezone will expire the page for everyone at the same time globally.</p>
+
+<h2>Known &amp; Possible Bugs</h2>
+
+<ul>
+<li>
+<code>checkExpiration()</code> doesn't seem to see the update when the time is updated to atomic time via AJAX; probably because <code>setInterval</code> is called before the async action is completed.</li>
+<li>Not all timezones pulled from IPInfoDB have been checked to proved whether they convert correctly with the <code>convertTZ()</code> function.</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/travishorn">travishorn</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
