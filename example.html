@@ -1,0 +1,20 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Expire</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="jquery.expire.js"></script>
+    <script>
+      $.expire({
+        startTime: new Date('Apr 01 2012 00:00:00')
+        , endTime: new Date('Apr 30 2012 23:59:59')
+        , expireAction: function(){ console.log('Expired!'); }
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Expire</h1>
+    <p>Hello! This page will expire at a certain moment.</p>
+  </body>
+</html>

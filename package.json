@@ -1,0 +1,16 @@
+{
+  "name": "expire",
+  "version": "1.0",
+  "title": "jQuery.expire()",
+  "author": {
+    "name": "Travis Horn"
+  },
+  "dependencies": {
+    "jquery": ">=1.7.2"
+  },
+  "description": "Checks to see whether a page has expired and, if so, performs an action."
+  "homepage": "http://travishorn.github.com/jquery-expire/",
+  "files": [
+    "jquery.expire.js"
+  ]
+}
